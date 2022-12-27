@@ -1,5 +1,7 @@
 package dao;
 
+import model.Bodega;
+import model.Campo;
 import model.Entrada;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -44,7 +46,38 @@ public class Dao {
         }
         return null;
     }
-    private void endSession() {
+    public void addBodega(Bodega bodega){
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+
+            session.save(bodega);
+
+            tx.commit();
+
+        } catch (HibernateException e) {
+            if (tx != null)
+                tx.rollback(); // Rollback si algun error ocurre.
+            e.printStackTrace();
+        }
+    }
+    public void addCampo(Campo campo){
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+
+            session.save(campo);
+
+            tx.commit();
+
+        } catch (HibernateException e) {
+            if (tx != null)
+                tx.rollback(); // Rollback si algun error ocurre.
+            e.printStackTrace();
+        }
+
+    }
+    public void endSession() {
         session.close();
     }
 }

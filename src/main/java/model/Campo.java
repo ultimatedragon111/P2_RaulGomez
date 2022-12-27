@@ -10,10 +10,11 @@ public class Campo {
     @Column(name = "id", unique = true, nullable = true)
     private int id;
 
-    @Column
-    private String nombre;
+    @OneToOne()
+    @JoinColumn(name = "id_bodega")
+    private Bodega bodega;
 
-    Campo(){}
+    public Campo(){}
 
     public int getId() {
         return id;
@@ -23,19 +24,19 @@ public class Campo {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public Bodega getBodega() {
+        return bodega;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setBodega(Bodega bodega) {
+        this.bodega = bodega;
     }
 
     @Override
     public String toString() {
         return "Campo{" +
                 "id=" + id +
-                ", nombre='" + nombre + '\'' +
+                ", bodega=" + bodega +
                 '}';
     }
 }

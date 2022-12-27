@@ -14,7 +14,7 @@ public class Bodega {
     @Column
     private String nombre;
 
-    Bodega(){}
+    public Bodega(){}
 
     public int getId() {
         return id;

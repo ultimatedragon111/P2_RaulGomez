@@ -26,7 +26,7 @@ public class Vid {
     @JoinColumn(name = "campo_id")
     private Campo campo;
 
-    Vid(){}
+    public Vid(){}
 
     public int getId() {
         return id;
