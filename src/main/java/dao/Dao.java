@@ -21,7 +21,6 @@ public class Dao {
         SessionFactory sessionFactory = new Configuration().configure()
                 .buildSessionFactory();
 
-        // Recupero el objeto de sessión
         session = sessionFactory.openSession();
 
     }
@@ -38,7 +37,7 @@ public class Dao {
 
         } catch (HibernateException e) {
             if (tx != null)
-                tx.rollback(); // Rollback si algun error ocurre.
+                tx.rollback();
             e.printStackTrace();
         }
         return null;
@@ -54,7 +53,7 @@ public class Dao {
 
         } catch (HibernateException e) {
             if (tx != null)
-                tx.rollback(); // Rollback si algun error ocurre.
+                tx.rollback();
             e.printStackTrace();
         }
     }
@@ -69,7 +68,7 @@ public class Dao {
 
         } catch (HibernateException e) {
             if (tx != null)
-                tx.rollback(); // Rollback si algun error ocurre.
+                tx.rollback();
             e.printStackTrace();
         }
 
@@ -85,7 +84,7 @@ public class Dao {
 
         } catch (HibernateException e) {
             if (tx != null)
-                tx.rollback(); // Rollback si algun error ocurre.
+                tx.rollback();
             e.printStackTrace();
         }
     }
@@ -103,7 +102,7 @@ public class Dao {
 
         } catch (HibernateException e) {
             if (tx != null)
-                tx.rollback(); // Rollback si algun error ocurre.
+                tx.rollback();
             e.printStackTrace();
         }
         return null;
