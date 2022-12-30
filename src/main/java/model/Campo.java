@@ -16,6 +16,10 @@ public class Campo {
 
     public Campo(){}
 
+    public Campo(Bodega bodega) {
+        this.bodega = bodega;
+    }
+
     public int getId() {
         return id;
     }

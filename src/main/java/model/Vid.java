@@ -1,5 +1,7 @@
 package model;
 
+import utils.TipoVid;
+
 import javax.persistence.*;
 
 
@@ -16,7 +18,7 @@ public class Vid {
     private int cantidad;
 
     @Column
-    private int tipo_vid;
+    private TipoVid tipo_vid;
 
     @OneToOne()
     @JoinColumn(name = "bodega_id")
@@ -27,6 +29,11 @@ public class Vid {
     private Campo campo;
 
     public Vid(){}
+    public Vid(int Cantidad,TipoVid tipoVid, Campo campo){
+        this.cantidad = cantidad;
+        this.tipo_vid = tipoVid;
+        this.campo = campo;
+    }
 
     public int getId() {
         return id;
@@ -44,11 +51,11 @@ public class Vid {
         this.cantidad = cantidad;
     }
 
-    public int getTipo_vid() {
+    public TipoVid getTipo_vid() {
         return tipo_vid;
     }
 
-    public void setTipo_vid(int tipo_vid) {
+    public void setTipo_vid(TipoVid tipo_vid) {
         this.tipo_vid = tipo_vid;
     }
 

@@ -16,6 +16,10 @@ public class Bodega {
 
     public Bodega(){}
 
+    public Bodega(String nombre) {
+        this.nombre = nombre;
+    }
+
     public int getId() {
         return id;
     }
