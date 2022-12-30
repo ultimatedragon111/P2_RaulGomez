@@ -20,19 +20,11 @@ public class Vid {
     @Column
     private TipoVid tipo_vid;
 
-    @OneToOne()
-    @JoinColumn(name = "bodega_id")
-    private Bodega bodega;
-
-    @OneToOne()
-    @JoinColumn(name = "campo_id")
-    private Campo campo;
 
     public Vid(){}
-    public Vid(int Cantidad,TipoVid tipoVid, Campo campo){
+    public Vid(int cantidad,TipoVid tipoVid){
         this.cantidad = cantidad;
         this.tipo_vid = tipoVid;
-        this.campo = campo;
     }
 
     public int getId() {
@@ -59,30 +51,11 @@ public class Vid {
         this.tipo_vid = tipo_vid;
     }
 
-    public Bodega getBodega() {
-        return bodega;
-    }
-
-    public void setBodega(Bodega bodega) {
-        this.bodega = bodega;
-    }
-
-    public Campo getCampo() {
-        return campo;
-    }
-
-    public void setCampo(Campo campo) {
-        this.campo = campo;
-    }
-
     @Override
     public String toString() {
         return "Vid{" +
-                "id=" + id +
-                ", cantidad=" + cantidad +
+                "cantidad=" + cantidad +
                 ", tipo_vid=" + tipo_vid +
-                ", bodega=" + bodega +
-                ", campo=" + campo +
                 '}';
     }
 }

@@ -25,19 +25,16 @@ public class Dao {
         session = sessionFactory.openSession();
 
     }
-    public ArrayList<Entrada> ordenes(){
+    public ArrayList<Entrada> takeOrdenes(){
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
 
             Query query = session.createQuery("FROM Entrada");
 
-
-            ArrayList<Entrada> a = (ArrayList<Entrada>) query.list();
-
             tx.commit();
 
-            return a;
+            return (ArrayList<Entrada>) query.list();
 
         } catch (HibernateException e) {
             if (tx != null)
@@ -92,18 +89,17 @@ public class Dao {
             e.printStackTrace();
         }
     }
-    public ArrayList<Vid> takeVids(Campo campo){
+
+    public ArrayList<Campo> takeCampos(){
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
 
-            Query query = session.createQuery("FROM Vid WHERE campo_id = :campo").setParameter("campo",campo.getId());
-
-            ArrayList<Vid> a = (ArrayList<Vid>) query.list();
+            Query query = session.createQuery("FROM Campo");
 
             tx.commit();
 
-            return a;
+            return (ArrayList<Campo>) query.list();
 
         } catch (HibernateException e) {
             if (tx != null)
@@ -112,6 +108,7 @@ public class Dao {
         }
         return null;
     }
+
     public void endSession() {
         session.close();
     }
